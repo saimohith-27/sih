@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+
+{% block title %}Capacity Connect | Home{% endblock %}
+
+{% block content %}
+<section class="hero-section py-5 bg-light">
+  <div class="container py-5">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-7">
+        <span class="badge bg-primary-subtle text-primary fw-semibold mb-3">Smart Education</span>
+        <h1 class="display-5 fw-bold mb-3">CAPACITY CONNECT</h1>
+        <p class="lead text-secondary mb-4">Digital Capacity Building & Learning Management Portal</p>
+        <p class="mb-4">Connect learners, trainers, and administrators through a competency-based upskilling platform for evidence-driven workforce development.</p>
+        <div class="d-flex gap-3 flex-wrap">
+          <a href="{{ url_for('auth.register') }}" class="btn btn-primary btn-lg">Get Started</a>
+          <a href="{{ url_for('courses.index') }}" class="btn btn-outline-primary btn-lg">Browse Courses</a>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="card shadow border-0 rounded-4 p-4">
+          <h4 class="mb-3">Explore learning pathways</h4>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search courses or competencies">
+            <button class="btn btn-primary">Search</button>
+          </div>
+          <div class="d-grid gap-2">
+            <button class="btn btn-outline-secondary text-start">Climate Science</button>
+            <button class="btn btn-outline-secondary text-start">Data Analysis</button>
+            <button class="btn btn-outline-secondary text-start">Python for Weather</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container py-5">
+  <div class="row g-4 text-center">
+    <div class="col-md-4">
+      <div class="card h-100 border-0 shadow-sm p-4">
+        <div class="display-6 text-primary mb-2"><i class="bi bi-person-badge"></i></div>
+        <h4>Trainee</h4>
+        <p class="text-secondary">Track learning progress, complete assessments, and build competency across essential roles.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100 border-0 shadow-sm p-4">
+        <div class="display-6 text-success mb-2"><i class="bi bi-mortarboard"></i></div>
+        <h4>Trainer</h4>
+        <p class="text-secondary">Organize resources, assess learners, and manage competency-aligned learning journeys.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100 border-0 shadow-sm p-4">
+        <div class="display-6 text-warning mb-2"><i class="bi bi-gear"></i></div>
+        <h4>Admin</h4>
+        <p class="text-secondary">Deploy training, manage users, certifications, and publication of key announcements.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container py-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Featured Courses</h2>
+    <a href="{{ url_for('courses.index') }}" class="btn btn-link">View all</a>
+  </div>
+  <div class="row g-4">
+    {% for course in featured_courses %}
+    <div class="col-md-4">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body">
+          <span class="badge bg-light text-primary mb-2">{{ course.subject }}</span>
+          <h5 class="card-title">{{ course.title }}</h5>
+          <p class="text-secondary mb-3">Duration: {{ course.duration }}</p>
+          <a href="{{ url_for('courses.index') }}" class="btn btn-outline-primary">Explore</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="container py-5">
+  <div class="row g-4">
+    <div class="col-lg-6">
+      <div class="card border-0 shadow-sm h-100">
+        <div class="card-body">
+          <h3 class="mb-3">Announcements</h3>
+          {% for item in announcements %}
+          <div class="border rounded p-3 mb-3">
+            <h6>{{ item.title }}</h6>
+            <p class="mb-0 text-secondary">{{ item.text }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="card border-0 shadow-sm h-100">
+        <div class="card-body">
+          <h3 class="mb-3">Achievements</h3>
+          {% for item in achievements %}
+          <div class="d-flex align-items-start gap-3 mb-3">
+            <div class="bg-success-subtle text-success rounded-circle p-2"><i class="bi bi-trophy"></i></div>
+            <div>
+              <h6>{{ item.title }}</h6>
+              <p class="mb-0 text-secondary">{{ item.text }}</p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container py-5">
+  <div class="card border-0 shadow-sm">
+    <div class="card-body">
+      <h3 class="mb-4">Newly Added Learning Content</h3>
+      <div class="row g-3">
+        {% for item in content %}
+        <div class="col-md-6">
+          <div class="border rounded p-3 h-100">
+            <h6>{{ item.title }}</h6>
+            <p class="mb-0 text-secondary">{{ item.text }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container py-5">
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card border-0 shadow-sm h-100 p-4 text-center">
+        <div class="display-6 text-primary mb-3"><i class="bi bi-graph-up-arrow"></i></div>
+        <h5>Competency Mapping</h5>
+        <p class="text-secondary">Explainable matching between trainee skill gaps and the right trainer.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card border-0 shadow-sm h-100 p-4 text-center">
+        <div class="display-6 text-primary mb-3"><i class="bi bi-check2-circle"></i></div>
+        <h5>Assessment Driven</h5>
+        <p class="text-secondary">Track results, pass/fail status, and competency growth in a transparent way.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card border-0 shadow-sm h-100 p-4 text-center">
+        <div class="display-6 text-primary mb-3"><i class="bi bi-shield-check"></i></div>
+        <h5>Secure Platform</h5>
+        <p class="text-secondary">Built on Flask with a Supabase-ready architecture and guarded access patterns.</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

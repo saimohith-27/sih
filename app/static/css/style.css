@@ -1,0 +1,41 @@
+:root {
+  --primary: #0b5ed7;
+  --primary-dark: #0a3a7a;
+  --success: #198754;
+  --warning: #ffc107;
+  --light-bg: #f8f9fa;
+  --dark: #0f172a;
+}
+
+body {
+  background: #f5f7fb;
+  color: #1f2937;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+.hero-section {
+  background: linear-gradient(135deg, #eaf2ff 0%, #f7fbff 100%);
+}
+
+.card {
+  border-radius: 1rem;
+}
+
+.btn-primary {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+.navbar-brand {
+  letter-spacing: 0.08em;
+}
+
+.section-title {
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}

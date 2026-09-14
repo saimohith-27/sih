@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Course Details | Capacity Connect{% endblock %}
+{% block content %}
+<div class="container py-5">
+  <h1>{{ course.title }}</h1>
+  <p class="lead text-secondary">Course overview and resource access for structured training.</p>
+  <div class="card border-0 shadow-sm p-4 mt-4">
+    <p><strong>Duration:</strong> {{ course.duration }}</p>
+    <p><strong>Difficulty:</strong> Intermediate</p>
+    <p><strong>Subject:</strong> {{ course.subject }}</p>
+    <form method="post" action="{{ url_for('courses.enroll', course_id=course_id) }}">
+      <button type="submit" class="btn btn-primary">Enroll now</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

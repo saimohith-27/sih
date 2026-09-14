@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Assessments{% endblock %}
+{% block content %}
+<div class="container py-5">
+  <h1 class="mb-4">Assessments</h1>
+  <div class="list-group">
+    <a href="{{ url_for('assessments.detail', assessment_id='weather-quiz') }}" class="list-group-item list-group-item-action">
+      Weather Data Quiz
+    </a>
+    <a href="{{ url_for('assessments.detail', assessment_id='python-competency') }}" class="list-group-item list-group-item-action">
+      Python Competency Check
+    </a>
+  </div>
+</div>
+{% endblock %}

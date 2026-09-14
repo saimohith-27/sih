@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}My Profile{% endblock %}
+{% block content %}
+<div class="container py-5">
+  <h1 class="mb-4">My Profile</h1>
+  <div class="card border-0 shadow-sm p-4">
+    <form>
+      <div class="row g-3">
+        <div class="col-md-6"><label class="form-label">Full name</label><input class="form-control" value="{{ user.full_name or 'Trainee' }}"></div>
+        <div class="col-md-6"><label class="form-label">Email</label><input class="form-control" value="{{ user.email or 'N/A' }}"></div>
+        <div class="col-md-6"><label class="form-label">Qualification</label><input class="form-control" value="{{ user.qualification or 'Not set' }}"></div>
+        <div class="col-md-6"><label class="form-label">Phone</label><input class="form-control" value="{{ user.phone or 'Not set' }}"></div>
+      </div>
+      <button class="btn btn-primary mt-4">Save profile</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

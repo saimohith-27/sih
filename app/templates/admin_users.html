@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block title %}User Management{% endblock %}
+{% block content %}
+<div class="container py-5">
+  <h1 class="mb-4">User Management</h1>
+
+  <div class="card border-0 shadow-sm p-4 mb-4">
+    <h4 class="mb-3">Create trainer / approve user</h4>
+    <form method="post" action="{{ url_for('admin.users') }}">
+      <div class="row g-3 align-items-end">
+        <div class="col-md-4">
+          <label class="form-label">Name</label>
+          <input type="text" class="form-control" name="name" required>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" name="email" required>
+        </div>
+        <div class="col-md-2">
+          <label class="form-label">Role</label>
+          <select class="form-select" name="role">
+            <option value="trainee">Trainee</option>
+            <option value="trainer">Trainer</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <label class="form-label">Password</label>
+          <input type="password" class="form-control" name="password" required>
+        </div>
+        <div class="col-md-2">
+          <label class="form-label">Status</label>
+          <select class="form-select" name="status">
+            <option value="Pending">Pending</option>
+            <option value="Approved">Approved</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn btn-primary mt-3">Add user</button>
+    </form>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-bordered bg-white">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for user in users %}
+        <tr>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.role|capitalize }}</td>
+          <td>{{ user.status }}</td>
+          <td>
+            {% if user.status != 'Approved' %}
+            <form method="post" action="{{ url_for('admin.approve_user', user_id=user.id) }}">
+              <button class="btn btn-sm btn-success" type="submit">Approve</button>
+            </form>
+            {% else %}
+            <span class="text-success fw-semibold">Approved</span>
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

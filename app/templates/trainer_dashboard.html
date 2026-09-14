@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %}Trainer Dashboard{% endblock %}
+{% block content %}
+<div class="container py-5">
+  <h1 class="mb-4">Trainer Dashboard</h1>
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card border-0 shadow-sm p-4 h-100">
+        <h5>Profile</h5>
+        <p class="mb-1"><strong>Name:</strong> {{ user.name or 'Trainer' }}</p>
+        <p class="mb-1"><strong>Email:</strong> {{ user.email or 'N/A' }}</p>
+        <p class="mb-1"><strong>Role:</strong> {{ user.role or 'Trainer' }}</p>
+        <p class="mb-0"><strong>Department:</strong> {{ user.department or 'Training Division' }}</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card border-0 shadow-sm p-4 h-100">
+        <h5>Courses Created</h5>
+        <p class="display-6 mb-0">{{ stats.courses_created or 0 }}</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card border-0 shadow-sm p-4 h-100">
+        <h5>Active Trainees</h5>
+        <p class="display-6 mb-0">{{ stats.active_trainees or 0 }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-4 mt-2">
+    <div class="col-md-6">
+      <div class="card border-0 shadow-sm p-4 h-100">
+        <h5>Assessment Statistics</h5>
+        <p class="mb-2"><strong>Average score:</strong> {{ stats.average_score or 'N/A' }}</p>
+        <p class="mb-0 text-secondary">Specialization: {{ user.specialization or 'General training' }}</p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card border-0 shadow-sm p-4 h-100">
+        <h5>Quick Actions</h5>
+        <ul class="mb-0 ps-3">
+          <li>Create new course</li>
+          <li>Publish assessment</li>
+          <li>Review trainee progress</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

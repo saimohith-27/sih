@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}My Courses{% endblock %}
+{% block content %}
+<div class="container py-5">
+  <h1 class="mb-4">My Learning</h1>
+  <div class="row g-4">
+    {% set enrolled = session.get('enrolled_courses', []) %}
+    {% if enrolled %}
+      {% for course_id in enrolled %}
+        {% set course = courses_data.get(course_id) %}
+        {% if course %}
+          <div class="col-md-6">
+            <div class="card border-0 shadow-sm p-4">
+              <h5>{{ course.title }}</h5>
+              <div class="progress mb-2" style="height: 8px;">
+                <div class="progress-bar" style="width: 68%"></div>
+              </div>
+              <p class="text-secondary mb-0">68% completed</p>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    {% else %}
+      <div class="col-12">
+        <div class="alert alert-info">You have not enrolled in any course yet.</div>
+      </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

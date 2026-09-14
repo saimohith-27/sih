@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Trainee Dashboard{% endblock %}
+{% block content %}
+<div class="container py-5">
+  <h1 class="mb-4">Trainee Dashboard</h1>
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card border-0 shadow-sm p-4">
+        <h5>Profile Summary</h5>
+        <p class="mb-1"><strong>Name:</strong> {{ user.name or 'Trainee' }}</p>
+        <p class="mb-1"><strong>Email:</strong> {{ user.email or 'N/A' }}</p>
+        <p class="mb-1"><strong>Department:</strong> {{ user.department or 'Not assigned' }}</p>
+        <p class="mb-0"><strong>Progress:</strong> {{ user.progress or 0 }}%</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card border-0 shadow-sm p-4">
+        <h5>Enrolled Courses</h5>
+        {% for course in courses %}
+        <div class="mb-2">
+          <p class="mb-1">{{ course.title }}</p>
+          <div class="progress" style="height: 8px;">
+            <div class="progress-bar" style="width: {{ course.progress }}%"></div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card border-0 shadow-sm p-4">
+        <h5>Upcoming Assessments</h5>
+        {% for assessment in assessments %}
+        <p class="mb-0">{{ assessment.title }} · {{ assessment.deadline }}</p>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

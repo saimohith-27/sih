@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Assessment Detail{% endblock %}
+{% block content %}
+<div class="container py-5">
+  <h1>{{ assessment.title }}</h1>
+  <div class="card border-0 shadow-sm p-4 mt-4">
+    <p><strong>Subject:</strong> Climate Data</p>
+    <p><strong>Duration:</strong> 25 minutes</p>
+    <p><strong>Pass mark:</strong> 60%</p>
+    <form method="post" action="{{ url_for('assessments.submit', assessment_id=assessment_id) }}">
+      <ol>
+        <li>
+          Which of the following is a weather variable?
+          <div class="mt-2">
+            <label class="d-block"><input type="radio" name="q1" value="a"> Temperature</label>
+            <label class="d-block"><input type="radio" name="q1" value="b"> Humidity</label>
+            <label class="d-block"><input type="radio" name="q1" value="c"> Pressure</label>
+            <label class="d-block"><input type="radio" name="q1" value="d"> All of the above</label>
+          </div>
+        </li>
+        <li class="mt-4">
+          What does a humidity index indicate?
+          <div class="mt-2">
+            <label class="d-block"><input type="radio" name="q2" value="a"> Elevation</label>
+            <label class="d-block"><input type="radio" name="q2" value="b"> Air density</label>
+            <label class="d-block"><input type="radio" name="q2" value="c"> Wind speed</label>
+            <label class="d-block"><input type="radio" name="q2" value="d"> Moisture content in air</label>
+          </div>
+        </li>
+      </ol>
+      <button type="submit" class="btn btn-primary">Submit assessment</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

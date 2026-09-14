@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Feedback{% endblock %}
+{% block content %}
+<div class="container py-5">
+  <h1 class="mb-4">Feedback</h1>
+  <div class="card border-0 shadow-sm p-4">
+    <form>
+      <div class="mb-3">
+        <label class="form-label">Rating</label>
+        <select class="form-select">
+          <option>5 - Excellent</option>
+          <option>4 - Good</option>
+          <option>3 - Average</option>
+          <option>2 - Poor</option>
+          <option>1 - Very poor</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Comments</label>
+        <textarea class="form-control" rows="4"></textarea>
+      </div>
+      <button class="btn btn-primary">Submit feedback</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

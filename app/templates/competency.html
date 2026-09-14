@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Competency Mapping{% endblock %}
+{% block content %}
+<div class="container py-5">
+  <h1 class="mb-4">Competency Mapping</h1>
+  <p class="lead text-secondary">Rule-based recommendations: matching trainee needs to trainer expertise and subject alignment.</p>
+  <div class="row g-4">
+    {% for rec in recommendations %}
+    <div class="col-md-6">
+      <div class="card border-0 shadow-sm p-4 h-100">
+        <h5>{{ rec.name }}</h5>
+        <p class="mb-2 text-secondary">Expertise: {{ rec.expertise }}</p>
+        <p class="mb-2">Match score: <strong>{{ rec.match }}%</strong></p>
+        <p class="mb-2">Matched skills: {{ ', '.join(rec.matched_skills) if rec.matched_skills else 'No direct skill match' }}</p>
+        <p class="mb-2">Relevant subjects: {{ ', '.join(rec.subjects) if rec.subjects else 'No core subjects matched' }}</p>
+        <span class="badge bg-success">Recommended Trainer</span>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

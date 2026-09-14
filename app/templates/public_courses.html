@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Courses | Capacity Connect{% endblock %}
+{% block content %}
+<div class="container py-5">
+  <h1 class="mb-4">Courses</h1>
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card border-0 shadow-sm h-100 p-4">
+        <h5>Climate Data Analysis</h5>
+        <p class="text-secondary">Understand satellite and ground observation data for climate interpretation.</p>
+        <a href="{{ url_for('courses.detail', course_id='climate-data-analysis') }}" class="btn btn-outline-primary">View details</a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card border-0 shadow-sm h-100 p-4">
+        <h5>Python for Meteorology</h5>
+        <p class="text-secondary">Use Python to clean, transform, and visualise meteorological datasets.</p>
+        <a href="{{ url_for('courses.detail', course_id='python-for-meteorology') }}" class="btn btn-outline-primary">View details</a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card border-0 shadow-sm h-100 p-4">
+        <h5>Hydrology and Risk Mapping</h5>
+        <p class="text-secondary">Assess hydrological patterns and develop practical risk maps.</p>
+        <a href="{{ url_for('courses.detail', course_id='hydrology-risk-mapping') }}" class="btn btn-outline-primary">View details</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

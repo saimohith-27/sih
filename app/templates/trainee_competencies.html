@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Competencies{% endblock %}
+{% block content %}
+<div class="container py-5">
+  <h1 class="mb-4">Competency Status</h1>
+  <div class="row g-4">
+    <div class="col-md-6">
+      <div class="card border-0 shadow-sm p-4">
+        <h5>Python</h5>
+        <div class="progress" style="height: 10px;">
+          <div class="progress-bar" style="width: 80%"></div>
+        </div>
+        <p class="mb-0 mt-2 text-secondary">80% proficiency</p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card border-0 shadow-sm p-4">
+        <h5>Data Analysis</h5>
+        <div class="progress" style="height: 10px;">
+          <div class="progress-bar bg-success" style="width: 72%"></div>
+        </div>
+        <p class="mb-0 mt-2 text-secondary">72% proficiency</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

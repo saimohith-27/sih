@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Announcements{% endblock %}
+{% block content %}
+<div class="container py-5">
+  <h1 class="mb-4">Announcements</h1>
+  <div class="card border-0 shadow-sm p-4">
+    <form>
+      <div class="mb-3">
+        <label class="form-label">Title</label>
+        <input class="form-control" value="Orientation for October cohort">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Content</label>
+        <textarea class="form-control" rows="4">The next cohort has started onboarding and training pathways are now live.</textarea>
+      </div>
+      <button class="btn btn-primary">Publish</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
